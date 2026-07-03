@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>ImageForge — Конвертер изображений</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c5cff'/><stop offset='1' stop-color='%2322d3ee'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><g transform='translate(14,14) scale(1.5)' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='3' width='18' height='18' rx='3"/><circle cx='9' cy='9' r='2"/><path d='M21 15l-5-5L5 21'/></g></svg>" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c5cff'/><stop offset='1' stop-color='%2322d3ee'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url(%23g)'/><g transform='translate(14,14) scale(1.5)' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></g></svg>" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5.0.0/index.css" />
 <script src="https://unpkg.com/heic2any@0.0.4/dist/heic2any.js"></script>
@@ -23,11 +23,7 @@
   }
   html, body { height: 100%; font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-  body {
-    background: var(--bg);
-    min-height: 100vh;
-    position: relative;
-  }
+  body { background: var(--bg); min-height: 100vh; position: relative; }
   body::before {
     content: '';
     position: fixed;
@@ -98,7 +94,7 @@
     font-weight: 600;
     cursor: pointer;
     border-radius: 10px;
-    transition: color 0.15s ease;
+    transition: color 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +102,7 @@
     position: relative;
     z-index: 2;
   }
-  .nav-btn svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
+  .nav-btn svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .nav-btn:hover { color: var(--text); }
   .nav-btn:hover svg { transform: scale(1.15); }
   .nav-btn.active { color: white; }
@@ -120,28 +116,24 @@
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(124,92,255,0.35);
     transition:
-      left 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-      width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      left 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
     pointer-events: none;
   }
   .nav-indicator.bounce {
-    animation: indicatorBounce 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: indicatorBounce 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   @keyframes indicatorBounce {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.05, 1.12); }
     100% { transform: scale(1); }
   }
 
-  .page { display: none; animation: pageIn 0.15s ease; }
+  .page { display: none; }
   .page.active { display: block; }
-  @keyframes pageIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
 
-  .hero-home { text-align: center; padding: 40px 20px 20px; animation: fadeIn 0.8s ease 0.2s both; }
+  .hero-home { text-align: center; padding: 40px 20px 20px; }
   .hero-home h1 {
     font-size: clamp(32px, 5vw, 56px);
     font-weight: 800;
@@ -165,7 +157,6 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
     margin-bottom: 32px;
-    animation: fadeInUp 0.8s ease 0.3s both;
   }
   .feature {
     background: linear-gradient(180deg, var(--panel), var(--bg-2));
@@ -190,20 +181,9 @@
     border-radius: 16px;
     padding: 32px;
     margin-bottom: 32px;
-    animation: fadeInUp 0.8s ease 0.35s both;
   }
-  .formats-showcase h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .formats-showcase .subtitle {
-    color: var(--muted);
-    font-size: 14px;
-    text-align: center;
-    margin-bottom: 24px;
-  }
+  .formats-showcase h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; text-align: center; }
+  .formats-showcase .subtitle { color: var(--muted); font-size: 14px; text-align: center; margin-bottom: 24px; }
   .formats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -260,17 +240,8 @@
     font-size: 12px;
     color: var(--muted);
   }
-  .formats-legend span {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-  }
+  .formats-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
   .legend-dot.rw { background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
   .legend-dot.ro { background: var(--muted); }
 
@@ -280,7 +251,6 @@
     border-radius: 16px;
     padding: 32px;
     margin-top: 20px;
-    animation: fadeInUp 0.8s ease 0.4s both;
   }
   .how-it-works h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; text-align: center; }
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -301,7 +271,6 @@
     margin-top: 32px; padding: 20px 24px;
     background: rgba(34,211,238,0.06); border: 1px solid rgba(34,211,238,0.2);
     border-radius: 12px; color: var(--accent-2); font-size: 14px; line-height: 1.6;
-    animation: fadeInUp 0.8s ease 0.5s both;
   }
   .tech-note strong { color: var(--text); }
 
@@ -332,92 +301,124 @@
   .format-btn.active { background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-color: transparent; color: white; box-shadow: 0 6px 18px rgba(124,92,255,0.35); animation: btnActivate 0.4s ease; }
   @keyframes btnActivate { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-  /* ═══ КАСТОМНЫЕ ПОЛЗУНКИ ═══ */
-  .quality-row, .ico-size-row, .compress-row { margin-top: 14px; display: flex; align-items: center; gap: 12px; }
-  .quality-row label, .ico-size-row label, .compress-row label { font-size: 13px; color: var(--muted); min-width: 110px; }
-  
+  .quality-row, .ico-size-row { margin-top: 14px; display: flex; align-items: center; gap: 12px; }
+  .quality-row label, .ico-size-row label { font-size: 13px; color: var(--muted); min-width: 110px; }
+
   input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     flex: 1;
     height: 6px;
     background: var(--border);
-    border-radius: 3px;
+    border-radius: 999px;
     outline: none;
-    transition: background 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
   }
-  input[type="range"]:hover {
-    background: #353c4f;
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--accent) 0%,
+      var(--accent-2) var(--range-percent, 50%),
+      var(--border) var(--range-percent, 50%),
+      var(--border) 100%
+    );
+    transition: background 0.15s ease;
+  }
+  input[type="range"]::-moz-range-track {
+    height: 6px;
+    border-radius: 999px;
+    background: var(--border);
+    transition: background 0.15s ease;
+  }
+  input[type="range"]::-moz-range-progress {
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width 0.15s ease;
   }
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(124,92,255,0.4);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid var(--panel-2);
+    border: 3px solid var(--panel);
+    cursor: grab;
+    margin-top: -7px;
+    box-shadow:
+      0 0 0 0 rgba(124,92,255,0),
+      0 2px 8px rgba(0,0,0,0.3);
+    transition:
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.25s ease,
+      width 0.2s ease,
+      height 0.2s ease;
   }
   input[type="range"]::-webkit-slider-thumb:hover {
-    width: 22px;
-    height: 22px;
-    box-shadow: 0 4px 16px rgba(124,92,255,0.6);
-    transform: scale(1.1);
+    transform: scale(1.2);
+    box-shadow:
+      0 0 0 6px rgba(124,92,255,0.15),
+      0 4px 12px rgba(124,92,255,0.4);
   }
   input[type="range"]::-webkit-slider-thumb:active {
-    width: 24px;
-    height: 24px;
-    box-shadow: 0 6px 20px rgba(124,92,255,0.8);
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow:
+      0 0 0 8px rgba(124,92,255,0.2),
+      0 2px 10px rgba(124,92,255,0.5);
   }
   input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(124,92,255,0.4);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid var(--panel-2);
+    border: 3px solid var(--panel);
+    cursor: grab;
+    box-shadow:
+      0 0 0 0 rgba(124,92,255,0),
+      0 2px 8px rgba(0,0,0,0.3);
+    transition:
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+      box-shadow 0.25s ease;
   }
   input[type="range"]::-moz-range-thumb:hover {
-    width: 22px;
-    height: 22px;
-    box-shadow: 0 4px 16px rgba(124,92,255,0.6);
+    transform: scale(1.2);
+    box-shadow:
+      0 0 0 6px rgba(124,92,255,0.15),
+      0 4px 12px rgba(124,92,255,0.4);
   }
   input[type="range"]::-moz-range-thumb:active {
-    width: 24px;
-    height: 24px;
-    box-shadow: 0 6px 20px rgba(124,92,255,0.8);
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow:
+      0 0 0 8px rgba(124,92,255,0.2),
+      0 2px 10px rgba(124,92,255,0.5);
   }
-  input[type="range"]::-ms-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(124,92,255,0.4);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid var(--panel-2);
-  }
-  input[type="range"]::-ms-thumb:hover {
-    width: 22px;
-    height: 22px;
-    box-shadow: 0 4px 16px rgba(124,92,255,0.6);
+  input[type="range"]:focus-visible { outline: none; }
+  input[type="range"]:focus-visible::-webkit-slider-thumb {
+    box-shadow:
+      0 0 0 3px rgba(124,92,255,0.3),
+      0 2px 8px rgba(0,0,0,0.3);
   }
 
-  .compress-row select {
-    padding: 8px 12px; background: var(--panel-2); border: 1px solid var(--border);
-    border-radius: 8px; color: var(--text); font-family: inherit; font-size: 13px;
-    cursor: pointer; transition: border-color 0.2s ease;
+  .quality-row .val, .ico-size-row .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    min-width: 70px;
+    text-align: right;
+    font-weight: 600;
+    transition: color 0.2s ease;
   }
-  .compress-row select:hover { border-color: var(--accent); }
-  .compress-row select:focus { outline: none; border-color: var(--accent); }
-  .quality-row .val, .ico-size-row .val { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text); min-width: 70px; text-align: right; }
-  .ico-size-row { display: none; animation: slideDown 0.3s ease; }
-  .ico-size-row.show { display: flex; }
+  .quality-row .val.active, .ico-size-row .val.active { color: var(--accent-2); }
+
+  .ico-size-row { display: none; }
+  .ico-size-row.show { display: flex; animation: slideDown 0.3s ease; }
   .ico-custom-input { width: 70px; padding: 4px 8px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 6px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: center; transition: border-color 0.2s ease; }
   .ico-custom-input:focus { outline: none; border-color: var(--accent); }
   @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
@@ -438,9 +439,7 @@
     color: var(--danger);
     box-shadow: 0 4px 12px rgba(239,68,68,0.25);
   }
-  #clearBtn:hover:not(:disabled) svg {
-    color: var(--danger);
-  }
+  #clearBtn:hover:not(:disabled) svg { color: var(--danger); }
 
   .btn svg { width: 16px; height: 16px; transition: transform 0.2s ease; }
   .btn:hover:not(:disabled) svg { transform: scale(1.1); }
@@ -505,7 +504,7 @@
   .format-note.show { display: block; }
   .format-note.info { background: rgba(34,211,238,0.08); border-color: rgba(34,211,238,0.2); color: var(--accent-2); }
 
-  footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 12px; animation: fadeIn 1s ease 0.5s both; }
+  footer { text-align: center; margin-top: 40px; color: var(--muted); font-size: 12px; }
 
   .meta-preview { display: grid; grid-template-columns: 200px 1fr; gap: 20px; align-items: start; }
   @media (max-width: 700px) { .meta-preview { grid-template-columns: 1fr; } }
@@ -538,134 +537,6 @@
   .meta-table .edit-input:focus { outline: none; border-color: var(--accent); background: var(--panel-2); box-shadow: 0 0 0 2px rgba(124,92,255,0.2); }
   .meta-section-header { background: var(--panel-2); padding: 8px 12px; font-weight: 600; color: var(--accent); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
   .meta-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-
-  .compress-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
-  @media (max-width: 700px) { .compress-stats { grid-template-columns: 1fr; } }
-  .compress-stat { background: var(--panel-2); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; transition: all 0.2s ease; }
-  .compress-stat:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .compress-stat .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
-  .compress-stat .value { font-size: 22px; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
-  .compress-stat.original .value { color: var(--muted); }
-  .compress-stat.compressed .value { color: var(--success); }
-  .compress-stat.saved .value { background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-  .compare {
-    position: relative;
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--panel-2);
-    user-select: none;
-    touch-action: none;
-    line-height: 0;
-    cursor: zoom-in;
-  }
-  .compare.zoomed {
-    cursor: zoom-out;
-  }
-  .compare-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-  }
-  .compare-base {
-    position: relative;
-    display: block;
-    width: 100%;
-    transition: transform 0.2s ease;
-  }
-  .compare-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    clip-path: inset(0 50% 0 0);
-    pointer-events: none;
-  }
-  .compare-slider {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 3px;
-    height: 100%;
-    background: white;
-    transform: translateX(-50%);
-    cursor: ew-resize;
-    box-shadow: 0 0 12px rgba(0,0,0,0.5);
-    z-index: 2;
-  }
-  .compare-handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    display: grid;
-    place-items: center;
-    transition: transform 0.15s ease;
-  }
-  .compare-handle:hover { transform: translate(-50%, -50%) scale(1.1); }
-  .compare-handle svg { width: 20px; height: 20px; color: var(--accent); }
-
-  .compare-label {
-    position: absolute;
-    top: 12px;
-    background: var(--panel-2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 6px 12px;
-    border-radius: 8px;
-    pointer-events: none;
-    z-index: 3;
-    backdrop-filter: blur(8px);
-    background: rgba(28, 33, 48, 0.85);
-    transition: border-color 0.2s ease, color 0.2s ease;
-  }
-  .compare-label.before {
-    left: 12px;
-    color: var(--accent-2);
-    border-color: rgba(34,211,238,0.3);
-  }
-  .compare-label.after {
-    right: 12px;
-    color: var(--accent);
-    border-color: rgba(124,92,255,0.3);
-  }
-
-  .zoom-indicator {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    background: rgba(28, 33, 48, 0.85);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 6px;
-    pointer-events: none;
-    z-index: 3;
-    backdrop-filter: blur(8px);
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  .zoom-indicator.show {
-    opacity: 1;
-  }
 </style>
 </head>
 <body>
@@ -677,7 +548,7 @@
       </div>
       ImageForge
     </div>
-    <div class="badge">v2.3</div>
+    <div class="badge">v2.4</div>
   </header>
 
   <nav class="nav" id="nav">
@@ -690,10 +561,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
       Конвертация
     </button>
-    <button class="nav-btn" data-page="compress">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-      Сжатие
-    </button>
     <button class="nav-btn" data-page="metadata">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       Метаданные
@@ -703,7 +570,7 @@
   <section class="page active" data-page="home">
     <div class="hero-home">
       <h1>ImageForge</h1>
-      <p class="lead">Профессиональный инструмент для работы с изображениями прямо в вашем браузере. Конвертация, управление метаданными и умное сжатие — всё без загрузки файлов на сервер.</p>
+      <p class="lead">Профессиональный инструмент для работы с изображениями прямо в вашем браузере. Конвертация и управление метаданными — всё без загрузки файлов на сервер.</p>
     </div>
 
     <div class="features">
@@ -728,67 +595,24 @@
         <h3>Метаданные</h3>
         <p>Просматривайте и редактируйте EXIF, IPTC, XMP данные: модель камеры, параметры съёмки, GPS-координаты, автор и копирайт. Удаляйте конфиденциальную информацию в один клик.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-        </div>
-        <h3>Умное сжатие</h3>
-        <p>Оптимальное соотношение размера и качества. Наглядное сравнение оригинала и сжатой версии с помощью интерактивного ползунка — двигайте его, чтобы увидеть разницу.</p>
-      </div>
     </div>
 
     <div class="formats-showcase">
       <h2>Поддерживаемые форматы</h2>
       <p class="subtitle">Работаем с 12 популярными форматами изображений — от классических до современных</p>
       <div class="formats-grid">
-        <div class="format-chip">
-          <div class="name">JPG</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">PNG</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">WebP</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">TIFF</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">AVIF</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">JPEG XL</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">ICO</div>
-          <div class="type rw">Чтение · Запись</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">HEIC</div>
-          <div class="type ro">Только чтение</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">BMP</div>
-          <div class="type ro">Только чтение</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">GIF</div>
-          <div class="type ro">Только чтение</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">SVG</div>
-          <div class="type ro">Только чтение</div>
-        </div>
-        <div class="format-chip">
-          <div class="name">PSD</div>
-          <div class="type ro">Только чтение</div>
-        </div>
+        <div class="format-chip"><div class="name">JPG</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">PNG</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">WebP</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">TIFF</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">AVIF</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">JPEG XL</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">ICO</div><div class="type rw">Чтение · Запись</div></div>
+        <div class="format-chip"><div class="name">HEIC</div><div class="type ro">Только чтение</div></div>
+        <div class="format-chip"><div class="name">BMP</div><div class="type ro">Только чтение</div></div>
+        <div class="format-chip"><div class="name">GIF</div><div class="type ro">Только чтение</div></div>
+        <div class="format-chip"><div class="name">SVG</div><div class="type ro">Только чтение</div></div>
+        <div class="format-chip"><div class="name">PSD</div><div class="type ro">Только чтение</div></div>
       </div>
       <div class="formats-legend">
         <span><span class="legend-dot rw"></span> Можно читать и конвертировать в этот формат</span>
@@ -799,26 +623,10 @@
     <div class="how-it-works">
       <h2>Как это работает</h2>
       <div class="steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h4>Загрузка</h4>
-          <p>Файл остаётся в памяти вашего браузера. JavaScript получает доступ к данным через File API.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h4>Декодирование</h4>
-          <p>Специализированные WASM-библиотеки декодируют изображение в пиксельные данные (RGBA).</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h4>Обработка</h4>
-          <p>Canvas API применяет нужные операции: изменение формата, сжатие, удаление метаданных.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">4</div>
-          <h4>Результат</h4>
-          <p>Готовый файл создаётся через Blob API и скачивается напрямую на ваше устройство.</p>
-        </div>
+        <div class="step"><div class="step-num">1</div><h4>Загрузка</h4><p>Файл остаётся в памяти вашего браузера. JavaScript получает доступ к данным через File API.</p></div>
+        <div class="step"><div class="step-num">2</div><h4>Декодирование</h4><p>Специализированные WASM-библиотеки декодируют изображение в пиксельные данные (RGBA).</p></div>
+        <div class="step"><div class="step-num">3</div><h4>Обработка</h4><p>Canvas API применяет нужные операции: изменение формата, сжатие, удаление метаданных.</p></div>
+        <div class="step"><div class="step-num">4</div><h4>Результат</h4><p>Готовый файл создаётся через Blob API и скачивается напрямую на ваше устройство.</p></div>
       </div>
     </div>
 
@@ -891,99 +699,6 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             <div>Пока нет файлов</div>
             <div style="margin-top:4px;">Загрузите изображения для начала работы</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page" data-page="compress">
-    <div class="card" style="margin-bottom:20px;">
-      <h2>Загрузите изображение</h2>
-      <div class="dropzone" id="compressDropzone">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        <div class="title">Перетащите файл сюда</div>
-        <div class="sub">или нажмите для выбора · JPG, PNG, WebP</div>
-        <input type="file" id="compressFileInput" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" hidden />
-      </div>
-      <div class="meta-actions" id="compressFileActions" style="display:none; margin-top:14px;">
-        <div style="flex:1; display:flex; align-items:center; gap:10px; padding:10px; background:var(--panel-2); border:1px solid var(--border); border-radius:10px;">
-          <div class="thumb" id="compressThumb"></div>
-          <div class="file-info">
-            <div class="file-name" id="compressFileName">—</div>
-            <div class="file-meta" id="compressFileSize">—</div>
-          </div>
-        </div>
-        <button class="btn danger" id="compressRemoveBtn" style="flex:0 0 auto; min-width:auto;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg>
-          Удалить
-        </button>
-      </div>
-    </div>
-
-    <div id="compressSettings" style="display:none;">
-      <div class="card" style="margin-bottom:20px;">
-        <h2>Настройки сжатия</h2>
-        <div class="compress-row">
-          <label>Формат выхода</label>
-          <select id="compressFormat">
-            <option value="webp">WebP (лучшее сжатие)</option>
-            <option value="jpg">JPEG</option>
-            <option value="png">PNG</option>
-          </select>
-        </div>
-        <div class="quality-row">
-          <label>Качество</label>
-          <input type="range" id="compressQuality" min="30" max="95" value="82" />
-          <span class="val" id="compressQualityVal">82%</span>
-        </div>
-        <div class="format-note info show" style="margin-top:12px;">
-          Рекомендуемые настройки: WebP с качеством 82% даёт оптимальное соотношение размера и качества. Для JPEG используйте 85%, для PNG — 90%.
-        </div>
-        <div class="actions">
-          <button class="btn primary" id="compressBtn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-            Сжать
-          </button>
-          <button class="btn" id="compressDownloadBtn" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Скачать сжатый файл
-          </button>
-        </div>
-      </div>
-
-      <div id="compressResult" style="display:none;">
-        <div class="compress-stats">
-          <div class="compress-stat original">
-            <div class="label">Оригинал</div>
-            <div class="value" id="compressOrigSize">—</div>
-          </div>
-          <div class="compress-stat compressed">
-            <div class="label">После сжатия</div>
-            <div class="value" id="compressNewSize">—</div>
-          </div>
-          <div class="compress-stat saved">
-            <div class="label">Экономия</div>
-            <div class="value" id="compressSaved">—</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Сравнение: до и после</h2>
-          <div class="compare" id="compareContainer">
-            <img class="compare-base compare-img" id="compareBase" alt="Сжатое" />
-            <img class="compare-overlay compare-img" id="compareOverlay" alt="Оригинал" />
-            <div class="compare-slider" id="compareSlider">
-              <div class="compare-handle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(6,0)"/></svg>
-              </div>
-            </div>
-            <div class="compare-label before">До</div>
-            <div class="compare-label after">Сжатое</div>
-            <div class="zoom-indicator" id="zoomIndicator">1.0x</div>
-          </div>
-          <div style="margin-top:12px; color: var(--muted); font-size: 12px; text-align: center;">
-            Перетаскивайте ползунок для сравнения. Используйте колёсико мыши для увеличения сжатой версии.
           </div>
         </div>
       </div>
@@ -1084,6 +799,18 @@
     img.src = URL.createObjectURL(blob);
   });
 
+  const updateRange = (input) => {
+    const min = parseFloat(input.min) || 0;
+    const max = parseFloat(input.max) || 100;
+    const val = parseFloat(input.value);
+    const percent = ((val - min) / (max - min)) * 100;
+    input.style.setProperty('--range-percent', percent + '%');
+  };
+
+  const initAllRanges = () => {
+    document.querySelectorAll('input[type="range"]').forEach(updateRange);
+  };
+
   const nav = $('nav');
   const navBtns = document.querySelectorAll('.nav-btn');
   const pages = document.querySelectorAll('.page');
@@ -1113,7 +840,10 @@
       });
     }
   };
-  window.addEventListener('load', initIndicator);
+  window.addEventListener('load', () => {
+    initIndicator();
+    initAllRanges();
+  });
   window.addEventListener('resize', () => {
     const activeBtn = document.querySelector('.nav-btn.active');
     if (activeBtn) updateIndicator(activeBtn, false);
@@ -1125,6 +855,7 @@
     pages.forEach(p => p.classList.remove('active'));
     document.querySelector(`.page[data-page="${btn.dataset.page}"]`).classList.add('active');
     updateIndicator(btn, true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }));
 
   let avifNativeSupported = false;
@@ -1445,7 +1176,7 @@
             const nativeBlob = await new Promise((res, rej) => canvas.toBlob(b => b ? res(b) : rej(new Error('toBlob null')), 'image/avif', quality));
             if (nativeBlob && nativeBlob.type === 'image/avif') { outputBlob = nativeBlob; }
             else { avifNativeSupported = false; throw new Error('Native returned ' + nativeBlob?.type); }
-          } catch (e) { /* fallback */ }
+          } catch (e) { }
         }
         if (!outputBlob) {
           showToast('Используется WASM-кодер AVIF...', 'warn');
@@ -1561,9 +1292,29 @@
     updateFormatNote();
   }));
 
-  qualityInput.addEventListener('input', () => { qualityVal.textContent = qualityInput.value + '%'; });
-  icoSizeInput.addEventListener('input', () => { icoSizeCustom.value = ''; icoSizeVal.textContent = `${icoSizeInput.value}×${icoSizeInput.value}`; updateFormatNote(); });
-  icoSizeCustom.addEventListener('input', () => { const val = parseInt(icoSizeCustom.value); if (val && val >= 16 && val <= 1024) { icoSizeVal.textContent = `${val}×${val}`; updateFormatNote(); } });
+  qualityInput.addEventListener('input', () => {
+    qualityVal.textContent = qualityInput.value + '%';
+    updateRange(qualityInput);
+    qualityVal.classList.add('active');
+    clearTimeout(qualityVal._t);
+    qualityVal._t = setTimeout(() => qualityVal.classList.remove('active'), 400);
+  });
+  icoSizeInput.addEventListener('input', () => {
+    icoSizeCustom.value = '';
+    icoSizeVal.textContent = `${icoSizeInput.value}×${icoSizeInput.value}`;
+    updateRange(icoSizeInput);
+    icoSizeVal.classList.add('active');
+    clearTimeout(icoSizeVal._t);
+    icoSizeVal._t = setTimeout(() => icoSizeVal.classList.remove('active'), 400);
+    updateFormatNote();
+  });
+  icoSizeCustom.addEventListener('input', () => {
+    const val = parseInt(icoSizeCustom.value);
+    if (val && val >= 16 && val <= 1024) {
+      icoSizeVal.textContent = `${val}×${val}`;
+      updateFormatNote();
+    }
+  });
 
   convertBtn.addEventListener('click', convertAll);
   downloadAllBtn.addEventListener('click', downloadAll);
@@ -1855,193 +1606,6 @@
     const baseName = metaState.file.name.substring(0, metaState.file.name.lastIndexOf('.')) || metaState.file.name;
     const ext = getExt(metaState.file.name) || 'jpg';
     triggerDownload(blob, `${baseName}_clean.${ext}`);
-  });
-
-  const compressDropzone = $('compressDropzone'), compressFileInput = $('compressFileInput');
-  const compressSettings = $('compressSettings');
-  const compressFormat = $('compressFormat');
-  const compressQuality = $('compressQuality'), compressQualityVal = $('compressQualityVal');
-  const compressBtn = $('compressBtn'), compressDownloadBtn = $('compressDownloadBtn');
-  const compressResult = $('compressResult');
-  const compressOrigSize = $('compressOrigSize'), compressNewSize = $('compressNewSize'), compressSaved = $('compressSaved');
-  const compareContainer = $('compareContainer');
-  const compareBase = $('compareBase'), compareOverlay = $('compareOverlay');
-  const compareSlider = $('compareSlider');
-  const compressFileActions = $('compressFileActions'), compressRemoveBtn = $('compressRemoveBtn');
-  const compressThumb = $('compressThumb'), compressFileName = $('compressFileName'), compressFileSize = $('compressFileSize');
-  const zoomIndicator = $('zoomIndicator');
-
-  let compressState = { file: null, originalUrl: null, compressedBlob: null, compressedUrl: null, thumbUrl: null };
-  let zoomLevel = 1;
-
-  compressDropzone.addEventListener('click', () => compressFileInput.click());
-  compressFileInput.addEventListener('change', e => {
-    if (e.target.files.length) loadCompressFile(e.target.files[0]);
-    compressFileInput.value = '';
-  });
-  ['dragenter','dragover'].forEach(ev => compressDropzone.addEventListener(ev, e => { e.preventDefault(); compressDropzone.classList.add('drag'); }));
-  ['dragleave','drop'].forEach(ev => compressDropzone.addEventListener(ev, e => { e.preventDefault(); compressDropzone.classList.remove('drag'); }));
-  compressDropzone.addEventListener('drop', e => { if (e.dataTransfer?.files?.length) loadCompressFile(e.dataTransfer.files[0]); });
-
-  compressRemoveBtn.addEventListener('click', () => {
-    if (compressState.originalUrl) URL.revokeObjectURL(compressState.originalUrl);
-    if (compressState.compressedUrl) URL.revokeObjectURL(compressState.compressedUrl);
-    if (compressState.thumbUrl) URL.revokeObjectURL(compressState.thumbUrl);
-    compressState = { file: null, originalUrl: null, compressedBlob: null, compressedUrl: null, thumbUrl: null };
-    compressSettings.style.display = 'none';
-    compressResult.style.display = 'none';
-    compressFileActions.style.display = 'none';
-    compressThumb.innerHTML = '';
-    compressFileName.textContent = '—';
-    compressFileSize.textContent = '—';
-    compressDownloadBtn.disabled = true;
-    zoomLevel = 1;
-    compareBase.style.transform = 'scale(1)';
-    compareContainer.classList.remove('zoomed');
-    showToast('Файл удалён', 'success');
-  });
-
-  const loadCompressFile = (file) => {
-    if (!file.type.match(/^image\/(jpeg|png|webp)$/) && !file.name.match(/\.(jpe?g|png|webp)$/i)) {
-      showToast('Поддерживаются только JPG, PNG, WebP', 'error');
-      return;
-    }
-    if (compressState.originalUrl) URL.revokeObjectURL(compressState.originalUrl);
-    if (compressState.compressedUrl) URL.revokeObjectURL(compressState.compressedUrl);
-    if (compressState.thumbUrl) URL.revokeObjectURL(compressState.thumbUrl);
-    compressState = {
-      file,
-      originalUrl: URL.createObjectURL(file),
-      compressedBlob: null,
-      compressedUrl: null,
-      thumbUrl: URL.createObjectURL(file)
-    };
-
-    compressThumb.innerHTML = '';
-    const thumbImg = document.createElement('img');
-    thumbImg.src = compressState.thumbUrl;
-    compressThumb.appendChild(thumbImg);
-    compressFileName.textContent = file.name;
-    compressFileSize.textContent = fmtSize(file.size);
-    compressFileActions.style.display = 'flex';
-
-    compressSettings.style.display = 'block';
-    compressResult.style.display = 'none';
-    compressDownloadBtn.disabled = true;
-  };
-
-  compressQuality.addEventListener('input', () => { compressQualityVal.textContent = compressQuality.value + '%'; });
-
-  compressBtn.addEventListener('click', async () => {
-    if (!compressState.file) return;
-    try {
-      showToast('Сжатие...', 'warn');
-      const format = compressFormat.value;
-      const quality = parseInt(compressQuality.value) / 100;
-      const img = await loadImageFromBlob(compressState.file);
-      const canvas = document.createElement('canvas');
-      canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
-      const ctx = canvas.getContext('2d');
-      if (format === 'jpg') { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, canvas.width, canvas.height); }
-      ctx.drawImage(img, 0, 0);
-      URL.revokeObjectURL(img.src);
-      const mime = format === 'jpg' ? 'image/jpeg' : format === 'png' ? 'image/png' : 'image/webp';
-      const blob = await new Promise((res, rej) => canvas.toBlob(b => b ? res(b) : rej(new Error('Compress failed')), mime, quality));
-      if (compressState.compressedUrl) URL.revokeObjectURL(compressState.compressedUrl);
-      compressState.compressedBlob = blob;
-      compressState.compressedUrl = URL.createObjectURL(blob);
-
-      compressOrigSize.textContent = fmtSize(compressState.file.size);
-      compressNewSize.textContent = fmtSize(blob.size);
-      const savedPct = Math.round((1 - blob.size / compressState.file.size) * 100);
-      compressSaved.textContent = (savedPct > 0 ? '-' : '+') + Math.abs(savedPct) + '%';
-
-      compareBase.src = compressState.compressedUrl;
-      compareOverlay.src = compressState.originalUrl;
-
-      await new Promise(res => {
-        if (compareBase.complete && compareBase.naturalWidth > 0) res();
-        else compareBase.onload = res;
-      });
-
-      setSliderPosition(50);
-      compressResult.style.display = 'block';
-      compressDownloadBtn.disabled = false;
-      showToast('Сжатие завершено', 'success');
-    } catch (e) {
-      console.error(e);
-      showToast('Ошибка сжатия: ' + e.message, 'error');
-    }
-  });
-
-  compressDownloadBtn.addEventListener('click', () => {
-    if (!compressState.compressedBlob) return;
-    const baseName = compressState.file.name.substring(0, compressState.file.name.lastIndexOf('.')) || compressState.file.name;
-    const ext = compressFormat.value === 'jpg' ? 'jpg' : compressFormat.value;
-    triggerDownload(compressState.compressedBlob, `${baseName}_compressed.${ext}`);
-  });
-
-  const setSliderPosition = (percent) => {
-    const p = Math.max(0, Math.min(100, percent));
-    compareOverlay.style.clipPath = `inset(0 ${100 - p}% 0 0)`;
-    compareSlider.style.left = p + '%';
-  };
-
-  let isDragging = false;
-  const startDrag = (e) => { isDragging = true; e.preventDefault(); updateDrag(e); };
-  const updateDrag = (e) => {
-    if (!isDragging) return;
-    const rect = compareContainer.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    const percent = (clientX - rect.left) / rect.width * 100;
-    setSliderPosition(percent);
-  };
-  const endDrag = () => { isDragging = false; };
-
-  compareSlider.addEventListener('mousedown', startDrag);
-  compareSlider.addEventListener('touchstart', startDrag, { passive: false });
-  compareContainer.addEventListener('click', (e) => {
-    if (e.target === compareSlider || compareSlider.contains(e.target)) return;
-    const rect = compareContainer.getBoundingClientRect();
-    const percent = (e.clientX - rect.left) / rect.width * 100;
-    setSliderPosition(percent);
-  });
-  window.addEventListener('mousemove', updateDrag);
-  window.addEventListener('touchmove', updateDrag, { passive: false });
-  window.addEventListener('mouseup', endDrag);
-  window.addEventListener('touchend', endDrag);
-
-  // Зум колёсиком мыши
-  compareContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.2 : 0.2;
-    zoomLevel = Math.max(1, Math.min(5, zoomLevel + delta));
-    
-    const rect = compareContainer.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width * 100;
-    const y = (e.clientY - rect.top) / rect.height * 100;
-    
-    compareBase.style.transformOrigin = `${x}% ${y}%`;
-    compareBase.style.transform = `scale(${zoomLevel})`;
-    
-    compareContainer.classList.toggle('zoomed', zoomLevel > 1);
-    zoomIndicator.textContent = zoomLevel.toFixed(1) + 'x';
-    zoomIndicator.classList.toggle('show', zoomLevel > 1);
-    
-    clearTimeout(zoomIndicator._hideTimeout);
-    if (zoomLevel === 1) {
-      zoomIndicator._hideTimeout = setTimeout(() => {
-        zoomIndicator.classList.remove('show');
-      }, 1000);
-    }
-  }, { passive: false });
-
-  // Сброс зума при двойном клике
-  compareContainer.addEventListener('dblclick', () => {
-    zoomLevel = 1;
-    compareBase.style.transform = 'scale(1)';
-    compareContainer.classList.remove('zoomed');
-    zoomIndicator.classList.remove('show');
   });
 
   (async () => {
